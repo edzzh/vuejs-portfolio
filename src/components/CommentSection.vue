@@ -63,7 +63,7 @@
             }
           });
 
-          this.comments = fetchedComments;
+          this.comments = this.sortCommentsByDate(fetchedComments);
         },
         async submitForm() {
           const { username, comment } = this.commentData;
@@ -85,6 +85,14 @@
           } catch (error) {
             console.error("Error adding document: ", error);
           }
+        },
+        sortCommentsByDate(comments) {
+          return comments.sort((a, b) => {
+            let dateA = new Date(a.timestamp);
+            let dateB = new Date(b.timestamp);
+
+            return dateB.getTime() - dateA.getTime();
+          });
         }
       }
     }

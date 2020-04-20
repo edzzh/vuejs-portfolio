@@ -17,25 +17,6 @@
 
 <script>
     export default {
-      props: ['comments'],
-      watch: {
-        comments: function (newValue, oldValue) {
-          console.log(newValue);
-          console.log(oldValue);
-        }
-      }
-      // data() {
-      //   return {
-      //     propComments: this.comments
-      //   }
-      // },
-      // created() {
-      //   this.propComments.sort((a, b) => {
-      //     let dateA = new Date(a.timestamp);
-      //     let dateB = new Date(b.timestamp);
-      //
-      //     return dateB.getTime() - dateA.getTime();
-      //   });
-      // }
+      props: ['comments']
     }
 </script>
