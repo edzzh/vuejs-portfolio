@@ -12,10 +12,16 @@
                 />
             </div>
             <div class="field">
-                <textarea name="comment" id="comment" v-model.lazy="commentData.comment">
+                <textarea
+                        name="comment"
+                        id="comment"
+                        v-model.lazy="commentData.comment"
+                >
                 </textarea>
             </div>
-            <button class="ui blue labeled submit icon button" @click.prevent="submitForm">
+            <button class="ui blue labeled submit icon button"
+                    @click.prevent="submitForm"
+            >
                 <i class="icon edit"/> Add Comment
             </button>
         </form>
