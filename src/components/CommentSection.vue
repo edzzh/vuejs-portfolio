@@ -31,7 +31,7 @@
 </template>
 
 <script>
-    import firebase from '../Firebase';
+    import firebase from '../firebase';
     import CommentList from './CommentList.vue';
 
     export default {
@@ -76,20 +76,22 @@
           const photo_id = this.$route.params.photoId;
           const timestamp = new Date().toLocaleString();
 
-          try {
-            await this.databaseRef.add({
-              username,
-              comment,
-              photo_id,
-              timestamp
-            });
+          if (username !== '' && comment !== '') {
+            try {
+              await this.databaseRef.add({
+                username,
+                comment,
+                photo_id,
+                timestamp
+              });
 
-            this.commentData.username = '';
-            this.commentData.comment = '';
+              this.commentData.username = '';
+              this.commentData.comment = '';
 
-            await this.fetchComments();
-          } catch (error) {
-            console.error("Error adding document: ", error);
+              await this.fetchComments();
+            } catch (error) {
+              console.error("Error adding document: ", error);
+            }
           }
         },
         sortCommentsByDate(comments) {

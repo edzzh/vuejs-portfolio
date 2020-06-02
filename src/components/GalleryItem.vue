@@ -2,7 +2,7 @@
     <div class="ui segment" v-if="photoData === null">Fetching photo...</div>
     <div v-else class="ui raised very padded text container segment" style="margin-bottom: 20px;">
         <h2 class="ui header centered">
-            {{(photoData.description !== null) ? photoData.description : "No Title"}}
+            {{(photoData.description !== null) ? photoData.description.toUpperCase() : "No Title"}}
         </h2>
         <img class="ui image centered large"
              :src="photoData.urls.full"
